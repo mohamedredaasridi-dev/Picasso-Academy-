@@ -19,10 +19,8 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%23d94a31'/%3E%3Ctext x='50' y='58' font-size='48' text-anchor='middle' fill='%23fff' font-family='Montserrat, sans-serif'%3EP%3C/text%3E%3C/svg%3E">
 </head>
 <body>
-  <!-- Enlace para saltar al contenido principal (accesibilidad) -->
   <a href="#main-content" class="sr-only">Ir al contenido principal</a>
 
-  <!-- Encabezado de navegación -->
   <header class="navbar" id="navbar">
     <div class="container navinner">
       <a class="brand" href="#home" aria-label="Inicio de Picasso Academy">
@@ -50,7 +48,7 @@
   </header>
 
   <main id="main-content">
-    <!-- Sección Hero -->
+    <!-- Hero Section -->
     <section id="home" class="hero" data-parallax="true">
       <div class="hero-bg"></div>
       <div class="hero-overlay"></div>
@@ -93,7 +91,7 @@
       </div>
     </section>
 
-    <!-- Sección Sobre Nosotros -->
+    <!-- About Section -->
     <section id="about" class="section about">
       <div class="container grid-2">
         <div class="about-content">
@@ -141,14 +139,14 @@
             </ul>
           </div>
           <div class="team-showcase">
-            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=400&auto=format&fit=crop" alt="Colaboración del equipo" loading="lazy" class="team-img">
-            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=400&auto=format&fit=crop" alt="Ambiente en el aula" loading="lazy" class="team-img">
+            <img src="./image/pic22.jpg" alt="Colaboración del equipo" loading="lazy" class="team-img">
+            <img src="./image/pic23.jpg" alt="Ambiente en el aula" loading="lazy" class="team-img">
           </div>
         </aside>
       </div>
     </section>
 
-    <!-- Sección Programas -->
+    <!-- Programs Section -->
     <section id="programs" class="section programs">
       <div class="container">
         <div class="section-header">
@@ -251,7 +249,7 @@
       </div>
     </section>
 
-    <!-- Sección Centro de Exámenes SIELE -->
+    <!-- SIELE Section -->
     <section id="siele" class="section siele">
       <div class="container">
         <div class="section-header">
@@ -303,7 +301,7 @@
       </div>
     </section>
 
-    <!-- Sección Servicios para Estudiantes -->
+    <!-- Services Section -->
     <section id="services" class="section services">
       <div class="container">
         <div class="section-header">
@@ -358,7 +356,7 @@
       </div>
     </section>
 
-    <!-- Sección Testimonios -->
+    <!-- Testimonials -->
     <section class="section testimonials-section">
       <div class="container">
         <div class="section-header">
@@ -412,7 +410,7 @@
       </div>
     </section>
 
-    <!-- Sección Galería -->
+    <!-- Gallery -->
     <section id="gallery" class="section gallery">
       <div class="container">
         <div class="section-header">
@@ -449,7 +447,7 @@
       </div>
     </section>
 
-    <!-- Sección Blog -->
+    <!-- Blog -->
     <section id="blog" class="section blog">
       <div class="container">
         <div class="section-header">
@@ -507,7 +505,7 @@
       </div>
     </section>
 
-    <!-- Sección Contacto -->
+    <!-- Contact -->
     <section id="contact" class="section contact">
       <div class="container">
         <div class="section-header">
@@ -517,7 +515,8 @@
         </div>
         <div class="contact-wrapper grid-2">
           <div class="contact-form-section">
-            <form id="contactForm" class="contact-form" novalidate>
+            <!-- ✅ Formspree: Asegúrate de que "movglwee" sea tu endpoint válido -->
+            <form id="contactForm" class="contact-form" novalidate action="https://formspree.io/f/movglwee" method="POST">
               <div class="form-group">
                 <input id="name" name="name" type="text" placeholder="Nombre Completo" required>
                 <span class="error-msg"></span>
@@ -550,7 +549,8 @@
                   <i class="fas fa-paper-plane"></i>
                   <span>Enviar Mensaje</span>
                 </button>
-                <a class="btn btn-outline btn-lg" href="https://wa.me/212767505118?text=Estoy%20interesado%20en%20sus%20programas!" target="_blank" rel="noopener noreferrer">
+                <!-- ✅ WhatsApp corregido: sin espacios, número consistente -->
+                <a class="btn btn-outline btn-lg" href="https://wa.me/212767505118?text=Estoy%20interesado%20en%20sus%20programas" target="_blank" rel="noopener noreferrer">
                   <i class="fab fa-whatsapp"></i>
                   <span>WhatsApp</span>
                 </a>
@@ -561,7 +561,7 @@
           <aside class="contact-info-section">
             <h3><i class="fas fa-map-marker-alt"></i> Encuéntranos</h3>
             <div class="map-wrap">
-              <iframe loading="lazy" title="Ubicación de Picasso Academy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3386.037787653614!2d-6.840000184817457!3d34.02088208056306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda61f8f4a2f5e11%3A0x1234567890abcdef!2sRabat!5e0!3m2!1sen!2sma!4v1600000000000!5m2!1sen!2sma" width="100%" height="280" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6473.528271494115!2d-5.810653875764142!3d35.781169776884326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0c7f0076270451%3A0x7cb30819d921edeb!2sPicasso%20Academy!5e0!3m2!1sfr!2sma!4v1764893354093!5m2!1sfr!2sma" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             <div class="contact-details">
               <h3>Información de Contacto</h3>
@@ -569,7 +569,7 @@
                 <i class="fas fa-map-pin"></i>
                 <div>
                   <strong>Dirección</strong>
-                  <p>123 Calle Cervantes, Rabat, Marruecos</p>
+                  <p>3 étage, appt 6, 12 Av. Prince Héritier, Tangier 90000</p>
                 </div>
               </div>
               <div class="detail-item">
@@ -590,7 +590,8 @@
                 <i class="fas fa-envelope"></i>
                 <div>
                   <strong>Correo</strong>
-                  <p><a href="mailto:contact@picasso.ma">contact@picasso.ma</a></p>
+                  <!-- ❗ Posible error en dominio: ¿es "gmail.com" en lugar de "pgmail.com"? -->
+                  <p><a href="mailto:picassoacademy@gmail.com">picassoacademy@gmail.com</a></p>
                 </div>
               </div>
             </div>
@@ -600,13 +601,13 @@
     </section>
   </main>
 
-  <!-- Botón flotante de WhatsApp -->
-  <a href="https://wa.me/212767505118?text=Estoy%20interesado%20en%20sus%20programas!" 
+  <!-- ✅ Botón flotante de WhatsApp corregido -->
+  <a href="https://wa.me/212767505118?text=Estoy%20interesado%20en%20sus%20programas" 
      class="whatsapp-float" target="_blank" aria-label="Chatear por WhatsApp" title="Escríbenos por WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
 
-  <!-- Pie de página -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-content">
@@ -619,14 +620,14 @@
           <ul class="footer-links">
             <li><a href="https://portfolioreda.netlify.app/">Programas</a></li>
             <li><a href="#services">Servicios</a></li>
-            <li><a href="https://wa.me/+212700435618">Contacto</a></li>
+            <li><a href="https://wa.me/212767505118">Contacto</a></li>
           </ul>
         </div>
         <div class="footer-section">
           <h4>Síguenos</h4>
           <div class="social-links">
             <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/academypicasso?igsh=MXg2b2xuNzlvcWdsbA==" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
           </div>
         </div>
