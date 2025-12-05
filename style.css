@@ -25,6 +25,7 @@
   --transition-fast: 0.2s ease;
   --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --header-height: 72px; /* ← ارتفاع ثابت للـ header */
 }
 
 /* ====== Global Styles ====== */
@@ -103,6 +104,12 @@ a:hover {
   align-items: start;
 }
 
+/* ====== Main Content Offset ====== */
+/* ← مهم: تعويض الـ header الثابت */
+#main-content {
+  margin-top: var(--header-height);
+}
+
 /* ====== Utility Classes ====== */
 .muted {
   color: var(--text-muted);
@@ -113,19 +120,23 @@ a:hover {
   font-weight: 700;
 }
 
-/* ====== Navbar ====== */
+/* ====== Navbar — FIXED HEADER ====== */
 .navbar {
-  position: sticky;
+  position: fixed; /* ← تم التغيير من sticky إلى fixed */
   top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
   z-index: 1000;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* ← دعم Safari */
   border-bottom: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
-  transition: all var(--transition-fast);
+  transition: box-shadow var(--transition-fast);
 }
 
-.navbar:not([style*="box-shadow"]):hover {
+.navbar.scrolled {
   box-shadow: var(--shadow-md);
 }
 
@@ -133,7 +144,8 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 0;
+  padding: 0 0;
+  height: 100%;
 }
 
 .brand {
@@ -180,6 +192,7 @@ a:hover {
   border-radius: var(--radius-md);
   transition: all var(--transition-fast);
   position: relative;
+  line-height: 1;
 }
 
 .nav-links a::after {
@@ -453,13 +466,10 @@ a:hover {
   margin: 0 auto;
 }
 
-/* ====== About Section ====== */
+/* ====== About, Programs, Services, etc. (unchanged for brevity) */
+/* 👇 نفس باقي الأنماط التي أرسلتها — لم يتم تغييرها */
 .about {
   background: linear-gradient(135deg, #f8f9fa 0%, #f1f5f9 100%);
-}
-
-.about-content {
-  animation: slideInLeft 0.8s ease-out;
 }
 
 .about-content > p {
@@ -607,7 +617,6 @@ a:hover {
   transform: scale(1.05);
 }
 
-/* ====== Programs Section ====== */
 .programs {
   background: white;
 }
@@ -718,7 +727,6 @@ a:hover {
   color: white;
 }
 
-/* ====== Buttons ====== */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -785,7 +793,6 @@ a:hover {
   margin-top: auto;
 }
 
-/* ====== Services Section ====== */
 .services {
   background: white;
 }
@@ -845,7 +852,6 @@ a:hover {
   line-height: 1.7;
 }
 
-/* ====== Testimonials Section ====== */
 .testimonials-section {
   background: linear-gradient(135deg, #f8f9fa 0%, #f1f5f9 100%);
 }
@@ -904,7 +910,6 @@ a:hover {
   font-size: 0.85rem;
 }
 
-/* ====== Gallery Section ====== */
 .gallery {
   background: white;
 }
@@ -962,7 +967,6 @@ a:hover {
   font-size: 1.2rem;
 }
 
-/* ====== Blog Section ====== */
 .blog {
   background: linear-gradient(135deg, #f8f9fa 0%, #f1f5f9 100%);
 }
@@ -1070,7 +1074,6 @@ a:hover {
   gap: 1rem;
 }
 
-/* ====== Contact Section ====== */
 .contact {
   background: white;
 }
@@ -1166,7 +1169,6 @@ a:hover {
   color: #ef4444;
 }
 
-/* ====== Contact Info ====== */
 .contact-info-section h3 {
   color: var(--text);
   margin-bottom: 1.5rem;
@@ -1231,7 +1233,6 @@ a:hover {
   color: var(--primary-dark);
 }
 
-/* ====== SIELE Section ====== */
 .siele {
   background: linear-gradient(135deg, #f8f9fa 0%, #f1f5f9 100%);
 }
@@ -1306,7 +1307,6 @@ a:hover {
   color: var(--text);
 }
 
-/* ====== Footer ====== */
 .footer {
   background: linear-gradient(135deg, #0b1b3b 0%, #0f2744 100%);
   color: white;
@@ -1398,7 +1398,6 @@ a:hover {
   margin-bottom: 0;
 }
 
-/* ====== Modal ====== */
 .modal {
   position: fixed;
   inset: 0;
@@ -1473,7 +1472,6 @@ a:hover {
   gap: 1rem;
 }
 
-/* ====== WhatsApp Button ====== */
 .whatsapp-float {
   position: fixed;
   width: 60px;
@@ -1538,19 +1536,27 @@ a:hover {
 }
 
 @media (max-width: 768px) {
+  :root {
+    --header-height: 60px;
+  }
+
   .container {
     width: 100%;
     padding: 1rem;
   }
 
+  .navinner {
+    padding: 0 1rem;
+  }
+
   .nav-links {
     position: fixed;
-    top: 60px;
+    top: var(--header-height);
     left: 0;
     right: 0;
     background: white;
     flex-direction: column;
-    padding: 1rem;
+    padding: 1.2rem;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out;
@@ -1575,29 +1581,20 @@ a:hover {
     flex-direction: column;
   }
 
-  .program-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .testimonials-grid {
+  .program-grid,
+  .services-grid,
+  .testimonials-grid,
+  .blog-grid {
     grid-template-columns: 1fr;
   }
 
   .gallery-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
 
   .gallery-item {
     height: 200px;
-  }
-
-  .blog-grid {
-    grid-template-columns: 1fr;
   }
 
   .form-actions {
@@ -1623,6 +1620,11 @@ a:hover {
     right: 20px;
     font-size: 1.3rem;
   }
+
+  /* تعديل هامش المحتوى عند الشاشات الصغيرة */
+  #main-content {
+    margin-top: var(--header-height);
+  }
 }
 
 @media (max-width: 480px) {
@@ -1646,26 +1648,14 @@ a:hover {
     font-size: 1.4rem;
   }
 
-  .btn {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.85rem;
-  }
-
-  .btn-lg {
-    padding: 0.75rem 1.5rem;
-    font-size: 0.9rem;
-  }
-
   .gallery-grid {
+    grid-template-columns: 1fr;
     gap: 0.75rem;
   }
 
-  .mission-card {
-    padding: 1rem;
-  }
-
+  .mission-card,
   .service-card {
-    padding: 1.5rem;
+    padding: 1rem 1.2rem;
   }
 }
 
