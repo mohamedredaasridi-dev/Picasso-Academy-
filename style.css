@@ -25,7 +25,7 @@
   --transition-fast: 0.2s ease;
   --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  --header-height: 72px; /* ← ارتفاع ثابت للـ header */
+  --header-height: 72px;
 }
 
 /* ====== Global Styles ====== */
@@ -105,7 +105,6 @@ a:hover {
 }
 
 /* ====== Main Content Offset ====== */
-/* ← مهم: تعويض الـ header الثابت */
 #main-content {
   margin-top: var(--header-height);
 }
@@ -120,9 +119,9 @@ a:hover {
   font-weight: 700;
 }
 
-/* ====== Navbar — FIXED HEADER ====== */
+/* ====== Navbar — FIXED ====== */
 .navbar {
-  position: fixed; /* ← تم التغيير من sticky إلى fixed */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -130,7 +129,7 @@ a:hover {
   z-index: 1000;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px); /* ← دعم Safari */
+  -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
   transition: box-shadow var(--transition-fast);
@@ -466,8 +465,7 @@ a:hover {
   margin: 0 auto;
 }
 
-/* ====== About, Programs, Services, etc. (unchanged for brevity) */
-/* 👇 نفس باقي الأنماط التي أرسلتها — لم يتم تغييرها */
+/* ====== About Section ====== */
 .about {
   background: linear-gradient(135deg, #f8f9fa 0%, #f1f5f9 100%);
 }
@@ -617,6 +615,7 @@ a:hover {
   transform: scale(1.05);
 }
 
+/* ====== Programs Section ====== */
 .programs {
   background: white;
 }
@@ -727,6 +726,7 @@ a:hover {
   color: white;
 }
 
+/* ====== Buttons ====== */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -765,10 +765,6 @@ a:hover {
   box-shadow: 0 8px 16px rgba(217, 74, 49, 0.3);
 }
 
-.btn-primary:active {
-  transform: translateY(0);
-}
-
 .btn-outline {
   background: transparent;
   border: 2px solid rgba(255, 255, 255, 0.3);
@@ -792,6 +788,9 @@ a:hover {
   font-size: 0.85rem;
   margin-top: auto;
 }
+
+/* ====== Services, Testimonials, Gallery, Blog, SIELE, Footer ====== */
+/* (Keeping your original styles intact for brevity — they're already well-structured) */
 
 .services {
   background: white;
@@ -1074,6 +1073,7 @@ a:hover {
   gap: 1rem;
 }
 
+/* ====== Contact Section — PHONE OPTIMIZED ====== */
 .contact {
   background: white;
 }
@@ -1093,11 +1093,13 @@ a:hover {
   flex-direction: column;
   gap: 0.4rem;
   position: relative;
+  width: 100%;
 }
 
 .contact-form input,
 .contact-form textarea,
 .contact-form select {
+  width: 100%;
   padding: 1rem;
   border: 1.5px solid var(--border);
   border-radius: var(--radius-md);
@@ -1106,6 +1108,15 @@ a:hover {
   transition: all var(--transition-smooth);
   background: white;
   color: var(--text);
+}
+
+/* Prevent auto-zoom on iOS Safari */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+  font-size: 16px !important;
 }
 
 .contact-form input:focus,
@@ -1597,12 +1608,35 @@ a:hover {
     height: 200px;
   }
 
+  /* ✅ نموذج الاتصال - محسّن للهاتف */
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 10px;
+  }
+
   .form-actions {
     flex-direction: column;
+    gap: 12px;
   }
 
   .form-actions .btn {
     width: 100%;
+    justify-content: center;
+    padding: 14px;
+    font-size: 1rem;
+  }
+
+  .contact-wrapper {
+    gap: 2rem;
+  }
+
+  .map-wrap iframe {
+    width: 100% !important;
+    height: 220px !important;
   }
 
   .siele-content {
@@ -1621,7 +1655,6 @@ a:hover {
     font-size: 1.3rem;
   }
 
-  /* تعديل هامش المحتوى عند الشاشات الصغيرة */
   #main-content {
     margin-top: var(--header-height);
   }
